@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/FranciscoJSB12/go-crud/initializers"
-	"github.com/gin-gonic/gin"
+	"github.com/FranciscoJSB12/go-crud/models"
 )
 
 func init() {
@@ -11,11 +11,5 @@ func init() {
 }
 
 func main() {
-	router := gin.Default()
-
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{"message": "Hello from Go"})
-	})
-
-	router.Run()
+	initializers.DB.AutoMigrate(&models.Post{})
 }
