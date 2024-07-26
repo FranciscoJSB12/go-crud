@@ -7,3 +7,8 @@
 3. Install `Gorm ORM` with `go get -u gorm.io/gorm`
 
 4. Install the driver for postgres `go get -u gorm.io/driver/postgres`
+
+# Steps to execute migrations
+
+1. Navigate to the `migrate`
+2. Run `go run migrate.go`

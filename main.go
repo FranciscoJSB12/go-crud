@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/FranciscoJSB12/go-crud/controllers"
 	"github.com/FranciscoJSB12/go-crud/initializers"
 	"github.com/gin-gonic/gin"
 )
@@ -13,9 +14,11 @@ func init() {
 func main() {
 	router := gin.Default()
 
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{"message": "Hello from Go"})
-	})
+	router.GET("/posts", controllers.GetPosts)
+	router.GET("/posts/:id", controllers.GetOnePost)
+	router.POST("/posts", controllers.CreatePost)
+	router.PUT("/posts/:id", controllers.UpdatePost)
+	router.DELETE("/posts/:id", controllers.DeletePost)
 
 	router.Run()
 }
